@@ -1,0 +1,76 @@
+<%- include ../layouts/cabecera.ejs %>
+
+
+<div class="container mt-5">
+    <h2 class="mb-4">Formulario de Producto</h2>
+    <form method="post" action="/productos/crear">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="sku" class="form-label">SKU</label>
+                    <input type="text" class="form-control" id="sku" required>
+                </div>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Imagen</label>
+                    <input type="file" class="form-control" id="imagen">
+                </div>
+                <div class="mb-3">
+                    <label for="imagen2" class="form-label">Imagen 2</label>
+                    <input type="file" class="form-control" id="imagen2">
+                </div>
+                <div class="mb-3">
+                    <label for="imagen3" class="form-label">Imagen 3</label>
+                    <input type="file" class="form-control" id="imagen3">
+                </div>
+                <div class="mb-3">
+                    <label for="material" class="form-label">Material</label>
+                    <input type="text" class="form-control" id="material">
+                </div>
+                <div class="mb-3">
+                    <label for="tamano" class="form-label">Tamaño</label>
+                    <input type="text" class="form-control" id="tamano">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" class="form-control" id="color">
+                </div>
+                <div class="mb-3">
+                    <label for="peso" class="form-label">Peso (kg)</label>
+                    <input type="number" step="0.01" class="form-control" id="peso">
+                </div>
+                <div class="mb-3">
+                    <label for="especies_id" class="form-label">ID de Especie</label>
+                    <input type="number" class="form-control" id="especies_id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categoria_id" class="form-label">ID de Categoría</label>
+                    <input type="number" class="form-control" id="categoria_id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" step="0.01" class="form-control" id="precio" required>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="disponible" checked>
+                    <label class="form-check-label" for="disponible">Disponible</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input type="checkbox" class="form-check-input" id="estado" checked>
+                    <label class="form-check-label" for="estado">Estado activo</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+<%- include ../layouts/pie.ejs %>
