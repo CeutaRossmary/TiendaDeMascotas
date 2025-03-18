@@ -1,9 +1,11 @@
 <%- include ../layouts/cabecera.ejs %>
 
 
-<div class="container mt-5">
-    <h2 class="mb-4">Formulario de Producto</h2>
+<div class="container mt-5 form-container">
+    <h2 class="mb-4 form-title">Formulario de Producto</h2>
+
     <form method="post" action="/productos/crear">
+        <div class="bg-image"></div>
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
@@ -64,6 +66,7 @@
                     <input type="checkbox" class="form-check-input" id="estado" checked>
                     <label class="form-check-label" for="estado">Estado activo</label>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </div>
         </div>

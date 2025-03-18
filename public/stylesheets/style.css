@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* FORMULARIO DISEÑO */
+
+/* .bg-image{
+  background-image: url("https://medioambiente.uexternado.edu.co/wp-content/uploads/sites/19/2023/11/friends-3042751_1280-jpg.webp");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(20px);
+  position: relative;
+} */
+
+.form-container {
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 50px;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-control {
+  border-radius: 40px;
+}
