@@ -12,44 +12,39 @@
     <tr>
         <th scope="col">Sku</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Imagen01</th>
-        <th scope="col">Imgem02</th>
-        <th scope="col">Imgem02</th>
-        <th scope="col">Descripción</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Imagen2</th>
+        <th scope="col">Imgagen3</th>
+        <th scope="col">material</th>
+        <th scope="col">tamaño</th>
+        <th scope="col">color</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Id especies</th>
+        <th scope="col">Id especies Categoria</th>
+        <th scope="col">Disponible</th>
+        <th scope="col">Estado Activo</th>
+        
     </tr>
 </thead>
 <tbody>
+    <% for( let producto = 0; producto < productos.length; producto++ ) { %>
     <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Mark</td>
-        <td>Otto</td>
-       
+        <td scope="row"><%= productos[producto].id %></td>
+        <td><%= productos[producto].sku %></td>
+        <td><%= productos[producto].nombre %><td>
+        <td><%= productos[producto].tamaño %></td>
+        <td><%= productos[producto].color%></td>
+        <td><%= productos[producto].peso%></td>
+        <td><%= productos[producto].id_especie%></td>
+        <td><%= productos[producto].id_categoria%></td>
+        <td><%= productos[producto].disponible%></td>
+        <td><%= productos[producto].estado%></td>
+        <td scope="col"><a href="/productos/detalles" class="btn btn-primary">Detalles</a></td>
+             
     </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Mark</td>
-        <td>Otto</td>
-        
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-       
-    </tr>
+    <% } %>
+   
 </tbody>
 </table>
-
 </div>
-
-
 <%- include ../layouts/pie.ejs %>

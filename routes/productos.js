@@ -7,6 +7,7 @@ const productoController =require('../controllers/productosController');
 router.get('/', productoController.index)
 router.get('/crear', productoController.create)
 router.post('/', productoController.guardar)
+ router.get("/detalles", productoController.detalle);
  
 
 
