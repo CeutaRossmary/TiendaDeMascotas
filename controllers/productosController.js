@@ -12,9 +12,12 @@ module.exports = {
     },
     guardar:function(req,res){
       console.log(req.body); // Para ver si llegan los datos del formulario
-      res.render('productos/index')
+      productoModel.guardar(req.body,res)
+      var productos = productoModel.obtener()
+      res.render('productos/index',{productos:productos})
     },
     detalle:function(req,res){
+        console.log(req.params.id)
         res.render('productos/detalles')
     }
 }

@@ -1,50 +1,82 @@
 
     <%- include ../layouts/cabecera.ejs %>
+    
+    
+    
+        <div>
+            <h1 class="p-2">Lista de productos</h1>
+            <br>
+            <a href="productos/crear" type="button" class="btn btn-primary m-2">Agregar Producto</a>
+        <table class="table table-dark table-hover p-2">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Sku</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Imagen2</th>
+                    <th scope="col">Imagen3</th> <!-- Corregido el nombre -->
+                    <th scope="col">Material</th>
+                    <th scope="col">Tamaño</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Id especie</th>
+                    <th scope="col">Id categoría</th> <!-- Corregido el nombre -->
+                    <th scope="col">Disponible</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let producto=0; producto < productos.length; producto++) { %>
+                    <tr>
+                        <td>
+                            <%= productos[producto].id %>
+                        </td>
+                        <td>
+                            <%= productos[producto].sku %>
+                        </td>
+                        <td>
+                            <%= productos[producto].nombre %>
+                        </td>
+                        <td>
+                            <%= productos[producto].imagen %>
+                        </td>
+                        <td>
+                            <%= productos[producto].imagen2 %>
+                        </td>
+                        <td>
+                            <%= productos[producto].imagen3 %>
+                        </td> <!-- Corregido -->
+                        <td>
+                            <%= productos[producto].material %>
+                        </td>
+                        <td>
+                            <%= productos[producto].tamano %>
+                        </td> <!-- Asegúrate de que "tamaño" no tenga problemas en el backend -->
+                        <td>
+                            <%= productos[producto].color %>
+                        </td>
+                        <td>
+                            <%= productos[producto].peso %>
+                        </td>
+                        <td>
+                            <%= productos[producto].id_especie %>
+                        </td>
+                        <td>
+                            <%= productos[producto].id_categoria %>
+                        </td>
+                        <td>
+                            <%= productos[producto].disponible %>
+                        </td>
+                        <td>
+                            <%= productos[producto].estado %>
+                        </td>
+                        <td><a href="/productos/detalles/<%= productos[producto].id %>" class="btn btn-primary">Detalles</a>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
 
-
-   
-<div>
-<h1 class="p-2">Lista de productos</h1>
-<br>
-<a href="productos/crear" type="button" class="btn btn-primary m-2">Agregar Producto</a>
-<table class="table table-dark table-hover p-2">
-<thead>
-    <tr>
-        <th scope="col">Sku</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Imagen</th>
-        <th scope="col">Imagen2</th>
-        <th scope="col">Imgagen3</th>
-        <th scope="col">material</th>
-        <th scope="col">tamaño</th>
-        <th scope="col">color</th>
-        <th scope="col">Peso</th>
-        <th scope="col">Id especies</th>
-        <th scope="col">Id especies Categoria</th>
-        <th scope="col">Disponible</th>
-        <th scope="col">Estado Activo</th>
-        
-    </tr>
-</thead>
-<tbody>
-    <% for( let producto = 0; producto < productos.length; producto++ ) { %>
-    <tr>
-        <td scope="row"><%= productos[producto].id %></td>
-        <td><%= productos[producto].sku %></td>
-        <td><%= productos[producto].nombre %><td>
-        <td><%= productos[producto].tamaño %></td>
-        <td><%= productos[producto].color%></td>
-        <td><%= productos[producto].peso%></td>
-        <td><%= productos[producto].id_especie%></td>
-        <td><%= productos[producto].id_categoria%></td>
-        <td><%= productos[producto].disponible%></td>
-        <td><%= productos[producto].estado%></td>
-        <td scope="col"><a href="/productos/detalles" class="btn btn-primary">Detalles</a></td>
-             
-    </tr>
-    <% } %>
-   
-</tbody>
-</table>
-</div>
-<%- include ../layouts/pie.ejs %>
+        </div>
+        <%- include ../layouts/pie.ejs %>
