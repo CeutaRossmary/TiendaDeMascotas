@@ -1,4 +1,4 @@
-const { guardar } = require("../controllers/productosController");
+const guardar = require("../controllers/productosController");
 
 const productos = [
   {
