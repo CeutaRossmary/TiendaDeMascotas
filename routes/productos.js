@@ -23,7 +23,7 @@ var cargar = multer({ storage: rutaImagenes });
   console.log("entra 02", cargar);
 /* GET home page. */
 router.get('/', productoController.index)
-router.get('/crear', productoController.create)
+router.get('/crear', cargar.single("imagen"),productoController.create)
 router.post('/', cargar.single("imagen"), productoController.guardar)
  router.get("/detalles/:id", productoController.detalle);
  

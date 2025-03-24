@@ -1,4 +1,5 @@
-const guardar = require("../controllers/productosController");
+//const guardar = require("../controllers/productosController");
+const pool = require('../config/database')
 
 const productos = [
   {
@@ -50,20 +51,24 @@ const productos = [
     estado: "si",
   },
 ];
-const obtener = () =>{
-    return productos;
+const obtener = async () =>{
+  let productos = await pool.query("select * from productos ")
+  console.log(productos.rows)
+  pool.end
+    return productos.rows;
 }
 
 
 module.exports ={
     obtener,
-    guardar:function(data,res){
+    guardar:function(data,res, imagen){
       var regs = productos.length + 1
+      console.log(imagen);
      productos.push({
        id: regs,
        sku: data.sku,
        nombre: data.nombre,
-       imagen: data.imagen, 
+       imagen: imagen.filename, 
        imagen2: data.imagen2, 
        imagen3: data.imagen3, 
        material: data.material,
@@ -75,5 +80,7 @@ module.exports ={
        disponible: data.disponible,
        estado: data.estado,
      });
+     
 }
+
 }

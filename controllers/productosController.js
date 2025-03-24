@@ -12,7 +12,7 @@ module.exports = {
     },
     guardar:function(req,res){
       console.log(req.body); // Para ver si llegan los datos del formulario
-      productoModel.guardar(req.body,res)
+      productoModel.guardar(req.body,req.file,res)
       var productos = productoModel.obtener()
       res.render('productos/index',{productos:productos})
     },
