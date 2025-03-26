@@ -6,25 +6,29 @@ const productoController =require('../controllers/productosController');
 var multer = require("multer");
 var fecha = Date.now();
 
-var rutaImagenes = multer.diskStorage({
-  destination: function (request, file, callback) {
-    console.log("entra 01")
-    callback(null, "./public/images/");
-    
+// Configuración de almacenamiento de imágenes
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/images/");
   },
-
-
-  filename: function (request, file, callback) {
-    console.log(file);
-    callback(null, fecha + "_" + file.originalname);
+  filename: function (req, file, cb) {
+    cb(null, fecha + "_" + file.originalname);
   },
 });
-var cargar = multer({ storage: rutaImagenes });
-  console.log("entra 02", cargar);
+
+// Middleware de Multer
+const cargar = multer({ storage: storage }).fields([
+  { name: "imagen", maxCount: 1 },
+  { name: "imagen2", maxCount: 1 },
+  { name: "imagen3", maxCount: 1 },
+]);
+// Verifica que Multer está inicializado correctamente
+console.log("Middleware Multer listo");
 /* GET home page. */
 router.get('/', productoController.index)
-router.get('/crear', cargar.single("imagen"),productoController.create)
-router.post('/', cargar.single("imagen"), productoController.guardar)
+router.get('/crear',productoController.create)
+router.post("/",cargar, productoController.guardar
+);
  router.get("/detalles/:id", productoController.detalle);
  
 

@@ -61,26 +61,46 @@ const obtener = async () =>{
 
 module.exports ={
     obtener,
-    guardar:function(data,res, imagen){
-      var regs = productos.length + 1
-      console.log(imagen);
-     productos.push({
-       id: regs,
-       sku: data.sku,
-       nombre: data.nombre,
-       imagen: imagen.filename, 
-       imagen2: data.imagen2, 
-       imagen3: data.imagen3, 
-       material: data.material,
-       tamano: data.tamano,
-       color: data.color,
-       peso: data.peso,
-       id_especie: data.id_especie,
-       id_categoria: data.id_categoria,
-       disponible: data.disponible,
-       estado: data.estado,
-     });
-     
-}
+    guardar: async function(data,files){
 
-}
+const imagen = files.imagen ? files.imagen[0].filename : null;
+const imagen2 = files.imagen2 ? files.imagen2[0].filename : null;
+const imagen3 = files.imagen3 ? files.imagen3[0].filename : null;
+
+    producto_guardar = await pool.query(
+      "INSERT INTO productos (sku, nombre, imagen, imagen2, imagen3, material, tamano, color, peso, especies_id, categoria_id, precio, disponible, estado) VALUES('" +
+        data.sku +
+        "', '" +
+        data.nombre +
+        "', '" +
+        imagen +
+        "', '" +
+        imagen2 +
+        "', '" +
+        imagen3 +
+        "', '" +
+        data.material +
+        "', '" +
+        data.tamano +
+        "', '" +
+        data.color +
+        "', '" +
+        data.peso +
+        "', '" +
+        data.especies_id +
+        "', '" +
+        data.categoria_id +
+        "', '" +
+        data.precio +
+        "', '" +
+        data.disponible +
+        "', '" +
+        data.estado +
+    
+      
+        "')"
+    );
+
+      pool.end;
+    } 
+  }

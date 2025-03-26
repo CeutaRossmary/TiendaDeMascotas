@@ -15,67 +15,40 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Imagen</th>
                     <th scope="col">Imagen2</th>
-                    <th scope="col">Imagen3</th> <!-- Corregido el nombre -->
+                    <th scope="col">Imagen3</th> 
                     <th scope="col">Material</th>
                     <th scope="col">Tamaño</th>
                     <th scope="col">Color</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Id especie</th>
-                    <th scope="col">Id categoría</th> <!-- Corregido el nombre -->
+                    <th scope="col">Id categoría</th> 
+                    <th scope="col">Precio</th>
                     <th scope="col">Disponible</th>
                     <th scope="col">Estado</th>
                 </tr>
             </thead>
             <tbody>
-                <% for(let producto=0; producto < productos.length; producto++) { %>
+                <% productos.forEach(producto => 
+                { %>
                     <tr>
-                        <td>
-                            <%= productos[producto].id %>
-                        </td>
-                        <td>
-                            <%= productos[producto].sku %>
-                        </td>
-                        <td>
-                            <%= productos[producto].nombre %>
-                        </td>
-                        <td>
-                        <td><img class="img-thumbnail" width="150" src="/images/<%= productos[producto].imagen %>" alt=""></td>
-
-                        </td>
-                        <td>
-                            <%= productos[producto].imagen2 %>
-                        </td>
-                        <td>
-                            <%= productos[producto].imagen3 %>
-                        </td> <!-- Corregido -->
-                        <td>
-                            <%= productos[producto].material %>
-                        </td>
-                        <td>
-                            <%= productos[producto].tamano %>
-                        </td> <!-- Asegúrate de que "tamaño" no tenga problemas en el backend -->
-                        <td>
-                            <%= productos[producto].color %>
-                        </td>
-                        <td>
-                            <%= productos[producto].peso %>
-                        </td>
-                        <td>
-                            <%= productos[producto].id_especie %>
-                        </td>
-                        <td>
-                            <%= productos[producto].id_categoria %>
-                        </td>
-                        <td>
-                            <%= productos[producto].disponible %>
-                        </td>
-                        <td>
-                            <%= productos[producto].estado %>
-                        </td>
-                        <td><a href="/productos/detalles/<%= productos[producto].id %>" class="btn btn-primary">Detalles</a>
-                        </td>
+                        <td><%= producto.id %></td>
+                        <td><%= producto.sku %></td>
+                        <td><%= producto.nombre %></td>
+                        <td><img class="img-thumbnail" width="150" src="/images/<%= producto.imagen %>" alt=""></td>
+                        <td><img class="img-thumbnail" width="150" src="/images/<%= producto.Imagen2 %>" alt=""></td>
+                        <td><img class="img-thumbnail" width="150" src="/images/<%= producto.Imagen3 %>" alt=""></td> 
+                        <td><%= producto.material %></td>
+                        <td><%= producto.tamano %></td> 
+                        <td><%= producto.color %></td>
+                        <td><%= producto.peso %></td>
+                        <td><%= producto.especies_id %></td>
+                        <td><%= producto.categoria_id %></td>
+                        <td><%= producto.precio %></td>
+                        <td><%= producto.disponible %></td>
+                        <td><%= producto.estado %></td>
+                        <td><a href="/productos/detalles/<%= producto.id %>" class="btn btn-primary">Detalles</a></td>
                     </tr>
-                    <% } %>
+                    <% })%>
             </tbody>
         </table>
 
