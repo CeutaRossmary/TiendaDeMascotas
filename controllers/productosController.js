@@ -11,8 +11,10 @@ module.exports = {
     },
 
     guardar: async function(req,res){
+
      await productoModel.guardar(req.body,req.files,res)
       var productos_obterner = await productoModel.obtener()
+      
       res.render('productos/index',{productos:productos_obterner})
     },
 

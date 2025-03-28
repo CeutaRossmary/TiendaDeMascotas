@@ -47,8 +47,9 @@ module.exports = {
         "', '" +
         data.estado +
         "')"
+       
     );
-
+ res = producto_guardar;
     pool.end;
   },
 
